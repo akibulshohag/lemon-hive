@@ -1,42 +1,52 @@
 .main {
-  background-image: url('../public//assets//images//Background.png');
+  background-image:  url('/assets//images/Texture.png'), url('/assets//images//Background.png');
   padding: 3rem 10rem;
   min-height: 100vh;
+  width: 100%;
 }
 .imageZoom:hover{
   transform: scale(1.1);
   transition: 0.5s;
+  z-index: 2;
 }
-/* .productContainer{
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 75%, 100% 100%, 100% 0);
-          clip-path: polygon(0 0, 0 100%,100% 75%, 100% 100%,100% 0);
-} */
-
-
-
-
 .productContainer{
- background: linear-gradient(-45deg, transparent 45px, rgb(255, 255, 255) 0) bottom right;
- background-size: 100% 100%;
- background-repeat: no-repeat;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 83%, 78% 100%, 0% 100%);
 }
-/* .productContainer{
-  position: relative;
+.productContainer:hover{
+  transition: 1s;
 }
-.cut:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 80px solid white;
-  border-left: 80px solid yellow;
-  width: 0;
-} */
+.productContainer:hover .imageZoom{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.productContainer:hover .textHover span{
+  color:#fff;
+  transition: 0.5s;
+}
 
 .main2 {
   min-height: 100vh;
-  padding: 3rem 12rem;
- 
+  padding: 5rem 2rem;
+  
+  
+}
+.main3{
+  background-image: url('/assets//images//Left.png');
+  padding: 0rem 8rem;
+  background-repeat:repeat;
+  /* background-position: center bottom; */
+  /* background-size:100% 100%;  */
+  animation: move-background 5s linear infinite;
+}
+
+@keyframes move-background {
+  from {
+    background-position:center bottom;
+  }
+  to {
+    background-position:center top;
+  }
 }
 
 

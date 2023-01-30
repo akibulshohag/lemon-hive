@@ -1,0 +1,59 @@
+.main {
+    min-height: 100vh;
+    background-color: #fff;
+    background-image: url('../public//assets//images//Left.png');
+    width: 100%;
+    padding: 0em 7em;
+   
+  }
+  .leftImage{
+    background-image: url('../public//assets//images//Left.png');
+    min-height: 100vh;
+    width: 140px;
+    /* position: absolute; */
+    /* left: 0; */
+
+  }
+  .rightImage{
+    background-image: url('../public//assets//images//Left.png');
+    min-height: 100vh;
+    width: 140px;
+    /* position: absolute; */
+    /* right: 0; */
+  }
+
+  .box{
+    border: 5px solid red !important;
+    border-image: linear-gradient(45deg, purple, orange) 1;
+    border-radius: 10px;
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 83%, 78% 100%, 0% 100%); */
+    border-bottom-right-radius: 50px;
+  }
+
+  .image:hover .imageZoom{
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+
+  .shim-green {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 255, 0, 0.7);
+  }
+  .shim-green::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(233, 233, 233, 1) 0,
+      rgba(233, 233, 233, 0.9) 50%,
+      rgba(233, 233, 233, 0.8) 100%
+    );
+    animation: shimmer 2s ease-out infinite;
+    content: "";
+  }
+  
