@@ -4,6 +4,13 @@
   min-height: 100vh;
   width: 100%;
 }
+.productView{
+  display: block;
+}
+.sliderView{
+  display: none;
+}
+
 .imageZoom:hover{
   transform: scale(1.1);
   transition: 0.5s;
@@ -46,6 +53,19 @@
   }
   to {
     background-position:center top;
+  }
+}
+
+@media (min-width:300px) and (max-width:480px) {
+  .productView{
+    display: none;
+  }
+  .main {
+    min-height: 70vh;
+    padding: 3rem 1rem;
+  }
+  .sliderView{
+    display: block;
   }
 }
 

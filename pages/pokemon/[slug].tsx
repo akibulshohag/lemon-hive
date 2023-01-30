@@ -1,76 +1,70 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "../../styles/Pokemon.module.css";
 import Link from "next/link";
 import { AiTwotoneHome } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import axios from "axios";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  let arr = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
-  const [first, setfirst] = useState('')
+  const [details, setdetails] = useState<any>()
+
 
   const queryVar = `query pokemon($name: String!) {
     pokemon(name: $name) {
       id
       name
+      weight
+      height
       sprites {
         front_default
-      }
-      moves {
-        move {
-          name
-        }
       }
       types {
         type {
           name
         }
       }
+      abilities {
+        ability {
+          name
+        }
+      }
+      stats {
+        base_stat
+        stat {
+          name
+        }
+      }
     }
   }`;
 
-  const gqlVariables = {
-    limit: 2,
-    offset: 1,
-  };
-
-
   useEffect( () => {
     const url = JSON.parse(localStorage.getItem("url") || "{}");
-    console.log('.........',url);
-
-    try {
-        const res = fetch(`${'https://graphql-pokeapi.graphcdn.app/'}`, {
+     const getDetails = async ()=>{
+      try {
+      const res =  await fetch(`${'https://graphql-pokeapi.graphcdn.app/'}`, {
           credentials: 'omit',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             query: queryVar,
             variables:{
-                name: "ditto"
+                name:url
               },
           }),
           method: 'POST',
-        }).then((res) => res.json())
-        console.log('.......res',res);
-        
+        }).then((res) => res.json());
+        setdetails(res?.data?.pokemon)
       } catch (error) {
+        console.log('.err',error);
         
       }
-
-
-
-    // const res =async ()=>{
-    //     const response = await axios.get(`${url}`)
-    //     console.log('..........res',response?.data);
-        
-    // }
-    // res()
-    
+     }
+     getDetails()
+   
   }, []);
+  
+  
+
+
   return (
     <>
   
@@ -88,7 +82,7 @@ export default function Home() {
             <div className="col-span-4 w-full p-10">
               <div className="">
                 <p className="text-[45px] text-bold text-blue-700">
-                  Bullbasur #001
+                  {details?.name} #{details?.id}
                 </p>
               </div>
               <div className="">
@@ -102,16 +96,19 @@ export default function Home() {
               >
                 <div className="mt-5">
                   <p className="text-[25px] text-bold">Height</p>
-                  <p className="text-[16px] text-bold">2.04"</p>
+                  <p className="text-[16px] text-bold">{details?.height}{'"'}</p>
                   <p className="text-[25px] text-bold mt-5">Weight</p>
-                  <p className="text-[16px] text-bold">15.2 lbs</p>
+                  <p className="text-[16px] text-bold">{details?.weight} lbs</p>
                 </div>
                 <div className="mt-5">
                   <p className="text-[25px] text-bold">Category</p>
                   <p className="text-[16px] text-bold">Seed</p>
                   <p className="text-[25px] text-bold mt-5">Abilities</p>
-                  <p className="text-[16px] text-bold">Overflow</p>
-                  <p className="text-[16px] text-bold">Blaze</p>
+                  {details?.abilities.map((item:any,index:number)=>
+                  <div key={index}>
+                  <p className="text-[16px] text-bold">{item?.ability?.name}</p>
+                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -121,7 +118,7 @@ export default function Home() {
               <div className="overflow-hidden p-2">
                 <Image
                   className={styles.imageZoom}
-                  src={"/assets/images/dragon.png"}
+                  src={details?.sprites?.front_default}
                   alt="logo"
                   fill
                 />
@@ -131,12 +128,13 @@ export default function Home() {
               <div className="">
                 <p className="text-[20px] text-bold">Type</p>
                 <div className="flex mt-2">
-                  <button className="px-3 py-2 bg-green-500 rounded-md text-white">
-                    Grass
+                {details?.types.map((item:any,index:number)=>
+
+                  <button key={index} className="px-3 py-2 mr-4 bg-green-500 rounded-md text-white">
+                    {item?.type?.name}
                   </button>
-                  <button className="px-3 py-2 ml-4 bg-purple-500 rounded-md text-white">
-                    Poison
-                  </button>
+                  )}
+                 
                 </div>
               </div>
               <div className="pt-8">
@@ -164,66 +162,18 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-[20px] text-bold mt-5">Stats</p>
-                <div className="mt-5">
-                  <p className="text-[16px] text-bold mt-2">Hp</p>
+                {details?.stats.map((item:any,index:number)=>
+                <div key={index} className="mt-5">
+                  <p className="text-[16px] text-bold mt-2">{item?.stat?.name}</p>
 
                   <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
                     <div
                       className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "42%" }}
+                      style={{ width: `${item?.base_stat}%` }}
                     ></div>
                   </div>
                 </div>
-                <div>
-                  <p className="text-[16px] text-bold mt-2">Attack</p>
-
-                  <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "60%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-[16px] text-bold mt-2">Defense</p>
-
-                  <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "55%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-[16px] text-bold mt-2">Special attack</p>
-
-                  <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "70%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-[16px] text-bold mt-2">Special defense</p>
-
-                  <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "42%" }}
-                    ></div>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-[16px] text-bold mt-2">Speed</p>
-
-                  <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-                    <div
-                      className="bg-blue-600 h-1 rounded-full"
-                      style={{ width: "15%" }}
-                    ></div>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
