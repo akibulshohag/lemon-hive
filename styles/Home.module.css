@@ -10,6 +10,9 @@
 .sliderView{
   display: none;
 }
+.detailsView{
+  display: block;
+}
 
 .imageZoom:hover{
   transform: scale(1.1);
@@ -35,8 +38,6 @@
 .main2 {
   min-height: 100vh;
   padding: 5rem 2rem;
-  
-  
 }
 .main3{
   background-image: url('/assets//images//Left.png');
@@ -61,11 +62,18 @@
     display: none;
   }
   .main {
-    min-height: 70vh;
+    min-height: 60vh;
     padding: 3rem 1rem;
   }
   .sliderView{
     display: block;
+  }
+  .detailsView{
+    display: none;
+  }
+  .main2 {
+    min-height: 100vh;
+    padding: 3rem 1rem;
   }
 }
 

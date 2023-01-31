@@ -70,29 +70,28 @@ export default function Home() {
   
       <div className={styles.main}>
         <div className="bg-white h-[100vh]">
-          <div className="flex justify-center py-10 ">
+          <div className="flex justify-center py-10 w-[150px] h-[100px] relative mx-auto xs:mt-10">
             <Image
               src={"/assets/images/Logo.png"}
               alt="logo"
-              width={200}
-              height={200}
+              fill
             />
           </div>
-          <div className="grid grid-cols-12 gap-10 mt-5 mx-auto bg-white p-20">
-            <div className="col-span-4 w-full p-10">
+          <div className="grid grid-cols-12 gap-10 mt-5 mx-auto bg-white p-20 xs:p-0 xs:grid-cols-1 xs:gap-3">
+            <div className="col-span-4 w-full p-10 xs:p-0">
               <div className="">
-                <p className="text-[45px] text-bold text-blue-700">
+                <p className="text-[45px] text-bold text-blue-700 xs:text-[30px] xs:text-center">
                   {details?.name} #{details?.id}
                 </p>
               </div>
               <div className="">
-                <p className="text-[20px] text-bold">
+                <p className="text-[20px] text-bold xs:text-justify">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Officiis, fuga est quasi ea quam ex!
                 </p>
               </div>
               <div
-                className={`bg-white w-[350px] p-5 mt-10 flex justify-around ${styles.box}`}
+                className={`bg-white  p-5 mt-10 flex justify-around ${styles.box}`}
               >
                 <div className="mt-5">
                   <p className="text-[25px] text-bold">Height</p>
@@ -110,21 +109,22 @@ export default function Home() {
                   </div>
                   )}
                 </div>
+                <div className={`${styles.border} ${styles.br}`}></div>
               </div>
             </div>
             <div
-              className={`col-span-4 w-full h-[85%] p-10 relative overflow-hidden ${styles.image}`}
+              className={`col-span-4 p-10  overflow-hidden xs:p-0 xs:order-first ${styles.image}`}
             >
-              <div className="overflow-hidden p-2">
-                <Image
+              <div className="overflow-hidden  w-full h-full p-2">
+                <img
                   className={styles.imageZoom}
                   src={details?.sprites?.front_default}
                   alt="logo"
-                  fill
+                 
                 />
               </div>
             </div>
-            <div className="col-span-4 w-full p-10">
+            <div className="col-span-4 w-full p-10 xs:p-0">
               <div className="">
                 <p className="text-[20px] text-bold">Type</p>
                 <div className="flex mt-2">
@@ -178,7 +178,7 @@ export default function Home() {
             </div>
           </div>
           <Link href="/">
-            <div className="flex justify-center mx-auto cursor-pointer">
+            <div className="flex justify-center mx-auto cursor-pointer py-5">
               <div className="px-3 py-2 bg-yellow-500 rounded-sm text-white flex justify-center items-center space-x-2 border-solid border-4 border-indigo-600">
                 <AiTwotoneHome size={25} />
                 <p className="text-[20px]">Back To Homapage</p>

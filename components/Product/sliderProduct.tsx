@@ -21,11 +21,11 @@ export default function SliderCard({ arr }: any) {
     
   
   return (
-    <Carousel
-                breakPoints={breakPoints}
-              >
+    <div>
+              <Carousel breakPoints={breakPoints} >
               {arr?.map((item: any, index: number) => (
                   <div
+                  onClick={()=>redirect(item)}
                     key={index}
                     className={`h-[320px] w-[235px] bg-white rounded-md items-center justify-center overflow-hidden hover:bg-blue-100 hover:shadow-lg ${styles.productContainer}`}
                   >
@@ -57,5 +57,6 @@ export default function SliderCard({ arr }: any) {
                   </div>
               ))}
               </Carousel>
+              </div>
   );
 }
