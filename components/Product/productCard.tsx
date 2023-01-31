@@ -11,7 +11,7 @@ export default function ProductCard({ arr }: any) {
        }
   
   return (
-    <div className="grid grid-cols-5 gap-10 p-4 mt-10">
+    <div className="grid grid-cols-5 gap-10 p-4 mt-10 md:grid-cols-3 lg:grid-cols-4">
               {arr?.map((item: any, index: number) => (
                   <div
                   onClick={()=>redirect(item)}

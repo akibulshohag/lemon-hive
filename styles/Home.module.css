@@ -43,8 +43,6 @@
   background-image: url('/assets//images//Left.png');
   padding: 0rem 8rem;
   background-repeat:repeat;
-  /* background-position: center bottom; */
-  /* background-size:100% 100%;  */
   animation: move-background 5s linear infinite;
 }
 .detailsMobileView{
@@ -81,6 +79,26 @@
   .detailsMobileView{
     display: block;
   }
+}
+@media (min-width:769px) and (max-width:1024px) {
+  .main {
+    min-height: 60vh;
+    padding: 3rem 1rem;
+  }
+  .main3{
+    padding: 0rem 2rem;
+  }
+  
+}
+@media (min-width:1025px) and (max-width:1400px) {
+  .main {
+    min-height: 60vh;
+    padding: 3rem 1rem;
+  }
+  .main3{
+    padding: 0rem 3rem;
+  }
+  
 }
 
 

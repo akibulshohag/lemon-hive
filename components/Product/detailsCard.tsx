@@ -12,10 +12,10 @@ export default function ProductCard() {
           Ash & Pikachu Arrive in Pokemon Universe
         </p>
       </div>
-      <div className=" grid grid-cols-12 gap-3">
+      <div className=" grid grid-cols-12 gap-3 ">
         <div className="col-span-7">
           <div className="flex justify-between">
-            <div className="w-[700px]">
+            <div className="w-[700px] md:w-[400px] lg:w-[400px]">
               <span className="text-justify w-[500px] font-semibold">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Incidunt reprehenderit nesciunt amet perferendis pariatur
@@ -24,7 +24,7 @@ export default function ProductCard() {
                 id aut expedita molestias tempore? Cum eos facilis nisi non!
               </span>
               <div className="flex py-2">
-                <span className="text-justify w-[500px] font-semibold">
+                <span className="text-justify w-[500px] font-semibold md:w-[350px] lg:w-[400px]">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Neque labore placeat unde nesciunt repellat, animi iusto
                   dolores reiciendis, earum, doloremque debitis dolor
@@ -35,12 +35,12 @@ export default function ProductCard() {
                   nemo fuga expedita dolore omnis culpa impedit architecto
                   nemo fuga
                 </span>
-                <div className="px-2">
-                  <Image
+                <div className="px-2 w-[200px] h-[200px] md:w-[100px] md:h-[100px] lg:w-[150px] lg:h-[150px]">
+                  <img
+                  style={{height:'100%',width:'100%'}}
                     src={"/assets/images/Image04.png"}
                     alt="Image04"
-                    width={200}
-                    height={250}
+                    
                   />
                 </div>
               </div>
@@ -59,19 +59,23 @@ export default function ProductCard() {
               </p>
             </div>
             <div className="p-3">
-              <Image
+              <div className=" w-[200px] h-[200px] md:w-[100px] md:h-[100px] lg:w-[150px] lg:h-[150px]">
+
+              <img
                 src={"/assets/images/Image03.png"}
                 alt="Image05"
-                width={200}
-                height={250}
+                
               />
-              <Image
+              </div>
+               <div className="w-[200px] h-[200px] md:w-[100px] md:h-[100px] lg:w-[150px] lg:h-[150px]">
+              <img
                 className="py-3 mt-3"
                 src={"/assets/images/Image02.png"}
                 alt="Image05"
-                width={200}
-                height={300}
+                
               />
+                            </div>
+
             </div>
           </div>
           <p className="text-justify py-2 font-semibold">
@@ -102,13 +106,14 @@ export default function ProductCard() {
               </p>
             </div>
             <div className="flex justify-between mt-5">
-              <Image
+              <div className=" w-[200px] h-[200px] md:w-[100px] md:h-[100px] lg:w-[150px] lg:h-[150px]">
+              <img
                 src={"/assets/images/Image05.png"}
                 alt="Image05"
-                width={180}
-                height={180}
+                
               />
-              <p className="text-justify ml-3 w-[420px] font-semibold">
+              </div>
+              <p className="text-justify ml-3 w-[420px] font-semibold md:w-[300px] lg:w-[350px]">
                 Lorem ippisicing elit. Maiores eveniet asperiores molestiae,
                 aliquid explicabo consequuntur totam tempora perspiciatis
                 minus quibusdam, commodi harum voluptatum eum tempore ilsum
@@ -119,13 +124,14 @@ export default function ProductCard() {
               </p>
             </div>
             <div className="flex justify-between mt-5">
-              <Image
+            <div className=" w-[200px] h-[200px] md:w-[100px] md:h-[100px] lg:w-[150px] lg:h-[150px]">
+              <img
                 src={"/assets/images/Image01.png"}
                 alt="Image05"
-                width={180}
-                height={180}
+                
               />
-              <p className="text-justify ml-3 w-[420px] font-semibold">
+              </div>
+              <p className="text-justify ml-3 w-[420px] font-semibold md:w-[300px] lg:w-[350px]">
                 Lorem ippisicing elit. Maiores eveniet asperiores molestiae,
                 aliquid explicabo consequuntur totam tempora perspiciatis
                 minus quibusdam, commodi harum voluptatum eum tempore ilsum

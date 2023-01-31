@@ -77,7 +77,7 @@ export default function Home() {
               fill
             />
           </div>
-          <div className="grid grid-cols-12 gap-10 mt-5 mx-auto bg-white p-20 xs:p-0 xs:grid-cols-1 xs:gap-3">
+          <div className="grid grid-cols-12 gap-10 mt-5 mx-auto bg-white p-20 xs:p-0 xs:grid-cols-1 xs:gap-3 md:p-2 lg:p-5">
             <div className="col-span-4 w-full p-10 xs:p-0">
               <div className="">
                 <p className="text-[45px] text-bold text-blue-700 xs:text-[30px] xs:text-center">
@@ -124,7 +124,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="col-span-4 w-full p-10 xs:p-0">
+            <div className="col-span-4 w-full p-10 xs:p-0 md:p-2 lg:p-2">
               <div className="">
                 <p className="text-[20px] text-bold">Type</p>
                 <div className="flex mt-2">
