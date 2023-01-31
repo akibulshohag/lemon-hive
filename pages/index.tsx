@@ -74,7 +74,7 @@ export default function Home() {
       <div className={styles.detailsView}>
         <DetailsCard />
       </div>
-      <div>
+      <div className={styles.detailsMobileView}>
         <div className={` bg-white  ${styles.main2}`}>
           <div className="relative">
             <div className="flex justify-center w-[350px] h-[100px] mx-auto">

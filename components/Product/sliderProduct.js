@@ -4,26 +4,21 @@ import { Router, useRouter } from "next/router";
 import Carousel from "react-elastic-carousel";
 
 
-export default function SliderCard({ arr }: any) {
+export default function SliderCard({ arr }) {
     const router = useRouter();
 
-    const redirect = async (val:any)=>{
+    const redirect = async (val)=>{
         router.push(`/pokemon/${val?.name}`)
         localStorage.setItem("url", JSON.stringify(val?.name));
        }
 
-       const breakPoints = [
-        { width: 1, itemsToShow: 1 },
-        { width: 550, itemsToShow: 2 },
-        { width: 768, itemsToShow: 3 },
-        { width: 1200, itemsToShow: 4 },
-      ];
+     
     
   
   return (
     <div>
-              <Carousel breakPoints={breakPoints} >
-              {arr?.map((item: any, index: number) => (
+              <Carousel>
+              {arr?.map((item, index) => (
                   <div
                   onClick={()=>redirect(item)}
                     key={index}
